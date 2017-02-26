@@ -23,6 +23,11 @@ class App extends Component {
 
   loanChanged(amount, rate, years){
       console.log('amount changed to ' + amount);
+      this.setState({
+        amount: amount,
+        rate: rate,
+        years: years
+      })
   }
 
   render() {
@@ -38,9 +43,9 @@ class App extends Component {
         <RecurringAmount amount="400" period="pw" label="Rental Income"/>
 
         <div style={{padding:50}}>
-          <LoanInputs amount={this.state.amount} rate={this.state.rate} years={this.state.years} onChange={this.loanChanged}/>
+          <LoanInputs amount={this.state.amount} rate={this.state.rate} years={this.state.years} onChange={this.loanChanged.bind(this)}/>
           <div style={{width:"400px", paddingTop:"20px"}}>
-            <LoanRepayments/>
+            <LoanRepayments amount={this.state.amount} rate={this.state.rate} years={this.state.years}/>
           </div>
         </div>
       </div>

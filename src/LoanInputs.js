@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
-// import SelectField from 'material-ui/SelectField';
+
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
-
-import IconMenu from 'material-ui/IconMenu';
-import Paper from 'material-ui/Paper';
 import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
+
+import Paper from 'material-ui/Paper';
+
 import NumberHelpers from './NumberHelpers';
-// import RaisedButton from 'material-ui/RaisedButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 
 
-const styles = {
-    customWidth: {
-        width: 100,
-        direction: 'ltr',
-        textAlign: 'left',
-        marginTop: '0px'
-    },
-    textStyle: {
-        width: 120,
-        textAlign: 'right'
-    }
-};
+
+// const styles = {
+//     customWidth: {
+//         width: 100,
+//         direction: 'ltr',
+//         textAlign: 'left',
+//         marginTop: '0px'
+//     },
+//     textStyle: {
+//         width: 120,
+//         textAlign: 'right'
+//     }
+// };
 
 
 
@@ -35,7 +33,7 @@ export default class LoanInputs extends Component {
         this.state = {
             amount:this.props.amount || 100000,
             rate:this.props.rate || 5,
-            years:parseInt(this.props.years)
+            years:parseInt(this.props.years, 10)
         };
 
         this.changeAmount = this.changeAmount.bind(this);
