@@ -8,24 +8,6 @@ import Paper from 'material-ui/Paper';
 
 import NumberHelpers from './NumberHelpers';
 
-
-
-
-// const styles = {
-//     customWidth: {
-//         width: 100,
-//         direction: 'ltr',
-//         textAlign: 'left',
-//         marginTop: '0px'
-//     },
-//     textStyle: {
-//         width: 120,
-//         textAlign: 'right'
-//     }
-// };
-
-
-
 export default class LoanInputs extends Component {
 
     constructor(props) {
@@ -118,6 +100,7 @@ export default class LoanInputs extends Component {
 
                 <div style={innerStyle}>
                     <TextField 
+            
                         ref="rate"
                         onBlur={this.blurRate}
                         onChange={this.changeRate}
@@ -143,15 +126,13 @@ export default class LoanInputs extends Component {
                     floatingLabelText="Years"
                     value={this.state.years}
                     onChange={this.changeYears}
-                    autoWidth={true}
-                    >
-                    <MenuItem value={1} primaryText="1" />
-                    <MenuItem value={2} primaryText="2" />
-                    <MenuItem value={3} primaryText="3" />
-                    <MenuItem value={4} primaryText="4" />
-                    <MenuItem value={5} primaryText="5" />
-                    <MenuItem value={30} primaryText="30" />
-                   </SelectField>
+                    autoWidth={true} >
+
+                    {[...Array(30)].map((x, i) =>
+                        <MenuItem key={i + 1} value={i + 1} primaryText={i+1} />
+                    )}
+
+                    </SelectField>
                 </div>
 
             </div>

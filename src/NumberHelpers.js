@@ -2,7 +2,7 @@
 
 export default class {
     static formatCommas(x) {
-        x = Math.round(x);
+        if(x>0) x = Math.round(x);
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
@@ -14,6 +14,10 @@ export default class {
     }
 
     static monthlyPayments(amount, rate, years) {
+
+        if(!amount||!rate||!years)
+            return 0;
+
         amount = parseInt(amount, 10);
         rate = parseFloat(rate,10) / 12 / 100;
         let payments = parseInt(years,10) * 12;
@@ -25,6 +29,10 @@ export default class {
     }
 
     static monthlyIO(amount, rate) {
+
+        if(!amount||!rate)
+            return 0;
+
         amount = parseInt(amount,10);
         rate = parseFloat(rate,10);
         let payment = amount * rate / 100 / 12

@@ -28,11 +28,11 @@ export default class LoanRepayments extends Component {
         switch(frequency) {
         case 'Monthly':
             return NumberHelpers.formatCommas(this.monthlyPayments());
-        case 'Monthly / 2':
+        case 'Month / 2':
             return NumberHelpers.formatCommas(this.monthlyPayments() / 2);
         case 'Fortnightly':
             return NumberHelpers.formatCommas(this.monthlyPayments() * 12 / 26);
-        case 'Monthly / 4':
+        case 'Month / 4':
             return NumberHelpers.formatCommas(this.monthlyPayments() / 4);
         case 'Weekly':
             return NumberHelpers.formatCommas(this.monthlyPayments() * 12 / 52);
@@ -45,11 +45,11 @@ export default class LoanRepayments extends Component {
         switch(frequency) {
         case 'Monthly':
             return NumberHelpers.formatCommas(this.monthlyIO());
-        case 'Monthly / 2':
+        case 'Month / 2':
             return NumberHelpers.formatCommas(this.monthlyIO() / 2);
         case 'Fortnightly':
             return NumberHelpers.formatCommas(this.monthlyIO() * 12 / 26);
-        case 'Monthly / 4':
+        case 'Month / 4':
             return NumberHelpers.formatCommas(this.monthlyIO() / 4);
         case 'Weekly':
             return NumberHelpers.formatCommas(this.monthlyIO() * 12 / 52);
@@ -66,7 +66,7 @@ export default class LoanRepayments extends Component {
                 <Table selectable={false}>
                     <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
                     <TableRow>
-                        <TableHeaderColumn>{this.props.amount} @ {this.props.rate}%</TableHeaderColumn>
+                        <TableHeaderColumn>{NumberHelpers.formatCommas(this.props.amount)} @ {this.props.rate}%</TableHeaderColumn>
                         <TableHeaderColumn>P & I</TableHeaderColumn>
                         <TableHeaderColumn>Int Only</TableHeaderColumn>
                     </TableRow>
@@ -79,9 +79,9 @@ export default class LoanRepayments extends Component {
                         <TableRowColumn>{this.formattedIO('Monthly')}</TableRowColumn>
                     </TableRow>
                     <TableRow>
-                        <TableRowColumn>Monthly / 2</TableRowColumn>
-                        <TableRowColumn>{this.formattedPayments('Monthly / 2')}</TableRowColumn>
-                        <TableRowColumn>{this.formattedIO('Monthly / 2')}</TableRowColumn>
+                        <TableRowColumn>Month / 2</TableRowColumn>
+                        <TableRowColumn>{this.formattedPayments('Month / 2')}</TableRowColumn>
+                        <TableRowColumn>{this.formattedIO('Month / 2')}</TableRowColumn>
                     </TableRow>
                     <TableRow>
                         <TableRowColumn>Fortnightly</TableRowColumn>
@@ -89,9 +89,9 @@ export default class LoanRepayments extends Component {
                         <TableRowColumn>{this.formattedIO('Fortnightly')}</TableRowColumn>
                     </TableRow>
                     <TableRow>
-                        <TableRowColumn>Monthly / 4</TableRowColumn>
-                        <TableRowColumn>{this.formattedPayments('Monthly / 4')}</TableRowColumn>
-                        <TableRowColumn>{this.formattedIO('Monthly / 4')}</TableRowColumn>
+                        <TableRowColumn>Month / 4</TableRowColumn>
+                        <TableRowColumn>{this.formattedPayments('Month / 4')}</TableRowColumn>
+                        <TableRowColumn>{this.formattedIO('Month / 4')}</TableRowColumn>
                     </TableRow>
                     <TableRow>
                         <TableRowColumn>Weekly</TableRowColumn>

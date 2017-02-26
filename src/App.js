@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import FlatButtonExampleSimple from './BadgeSample.js'
-import RecurringAmount from './RecurringAmount.js'
+// import FlatButtonExampleSimple from './BadgeSample.js'
+// import RecurringAmount from './RecurringAmount.js'
 import LoanInputs from './LoanInputs.js'
 import LoanRepayments from './LoanRepayments.js'
+import LoanMetrics from './LoanMetrics.js'
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -37,15 +38,13 @@ class App extends Component {
   
       <div className="App">
 
-        <FlatButtonExampleSimple />
-
-        <RecurringAmount amount="48500" period="pa" label="Salary" />
-        <RecurringAmount amount="400" period="pw" label="Rental Income"/>
-
-        <div style={{padding:50}}>
+        <div style={{padding:40}}>
           <LoanInputs amount={this.state.amount} rate={this.state.rate} years={this.state.years} onChange={this.loanChanged.bind(this)}/>
-          <div style={{width:"400px", paddingTop:"20px"}}>
+          <div style={{width:"100%", maxWidth:"500px", paddingTop:"20px"}}>
             <LoanRepayments amount={this.state.amount} rate={this.state.rate} years={this.state.years}/>
+          </div>
+          <div style={{width:"100%", maxWidth:"500px", paddingTop:"20px"}}>
+            <LoanMetrics amount={this.state.amount} rate={this.state.rate} years={this.state.years}/>
           </div>
         </div>
       </div>
